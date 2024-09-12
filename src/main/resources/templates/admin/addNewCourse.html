@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+
+  <body>
+    <!--Navbar-->
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- Page content-->
+      <th:block th:insert="~{layout/admin::admin-sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <h2>Add New Course</h2>
+              <br />
+              <form
+                th:action="@{/admin/newcourse}"
+                th:object="${newCourseForm}"
+                method="POST"
+              >
+                <label for="name">Course Name:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="text"
+                    id="name"
+                    th:field="${newCourseForm.name}"
+                    placeholder="Enter A Name"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course Size">Course Size:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="text"
+                    th:field="*{size}"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('size')}"
+                      th:errors="*{size}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course Credits">Course Credits:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="text"
+                    th:field="*{credits}"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('credits')}"
+                      th:errors="*{credits}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course Description">Course Description:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="text"
+                    th:field="*{description}"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('description')}"
+                      th:errors="*{description}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course StartDate">Course StartDate:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="date"
+                    th:field="*{startDate}"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('startDate')}"
+                      th:errors="*{startDate}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course EndDate">Course EndDate:</label>
+                <div class="form-group row" style="margin-left: 0px">
+                  <input
+                    type="date"
+                    th:field="*{endDate}"
+                    class="form-control mb-4 col-4"
+                  />
+                  <div class="col-sm-5">
+                    <li
+                      th:if="${#fields.hasErrors('endDate')}"
+                      th:errors="*{endDate}"
+                      style="color: red"
+                    ></li>
+                  </div>
+                </div>
+
+                <label for="Course Schedule">Course Schedule:</label>
+                <select
+                  name="schedule"
+                  id="course-schedule"
+                  th:field="*{schedule}"
+                >
+                  <option value="Term1">Term1</option>
+                  <option value="Term2">Term2</option>
+                </select>
+
+                <br />
+                <br />
+                <button type="submit" class="btn btn-info col-2">
+                  Save Course
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../../static/js/adminLayout.js"></script>
+  </body>
+</html>

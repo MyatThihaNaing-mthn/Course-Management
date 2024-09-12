@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dropdown List Example</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #selectedItems {
+      margin-top: 20px;
+    }
+    .removeItem {
+      color: red;
+      cursor: pointer;
+      float: right;
+    }
+  </style>
+  <script>
+    var selectedItems = [];
+
+    function addItem() {
+      var select = document.getElementById("dropdown");
+      var selectedItem = select.options[select.selectedIndex].text;
+
+      if (selectedItem !== "" && !selectedItems.includes(selectedItem)) {
+        selectedItems.push(selectedItem);
+        var newItem = document.createElement("li");
+        newItem.innerHTML = '<span class="removeItem" onclick="removeItem(this)">[Remove]</span> ' + selectedItem;
+        newItem.classList.add("list-group-item", "list-group-item-primary", "clearfix");
+        document.getElementById("selectedItems").appendChild(newItem);
+      }
+    }
+
+    function removeItem(item) {
+      var itemText = item.parentNode.textContent.replace("[Remove]", "").trim();
+      var index = selectedItems.indexOf(itemText);
+      if (index !== -1) {
+        selectedItems.splice(index, 1);
+      }
+      item.parentNode.remove();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <select id="dropdown" class="form-control">
+          <option value="">Select Lecturer</option>
+          <option th:each="lecturer : ${lecturers}" th:value="${lecturer}" th:text="${lecturer.name}"></option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button onclick="addItem()" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ul id="selectedItems" class="list-group">
+          <li th:each="lecturer : ${course.lecturers}" class="list-group-item list-group-item-primary clearfix">
+            <span class="removeItem" onclick="removeItem(this)">[Remove]</span>
+            <span th:text="${lecturer.name}"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

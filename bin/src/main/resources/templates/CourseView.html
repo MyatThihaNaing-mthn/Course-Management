@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+        <style>
+            .custom-table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .custom-table th, .custom-table td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="table-responsive">
+            <table class="table table-bordered custom-table">
+                <thead class="text-center">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Credits</th>
+                        <th>Description</th>
+                        <th>Schedule</th>
+                        <th>Lecturer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="course: ${list}" class="text-center">
+                        <td th:text="${course.id}">Id</td>
+                        <td th:text="${course.name}">Name</td>
+                        <td th:text="${course.size}">Size</td>
+                        <td th:text="${course.credits}">Credits</td>
+                        <td th:text="${course.description}">Description</td>
+                        <td th:text="${course.schedule}">Schedule</td>
+                        <td>
+                            <span th:each="lecturerCourse : ${course.lecturerCourses}" class="d-block">
+                                <span th:text="${lecturerCourse.lecturer.name}"></span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <td>
+            <a th:href="@{/course/addnew}"> Add </a>
+        </td>
+    </body>
+</html>

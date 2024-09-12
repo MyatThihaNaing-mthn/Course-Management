@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <th:block th:insert="~{home/home::nav-wrapper}"></th:block>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" th:fragment="sidebar">
+          <div
+            class="list-group list-group-flush"
+            style="background-color: #9cd1f8"
+          >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${routePath == 'All Courses'? 'active':''}"
+              th:style="${routePath != 'All Courses'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/student/index}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;All Courses</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/student/courseList}"
+              th:classappend="${routePath == 'Available Courses'? 'active':''}"
+              th:style="${routePath != 'Available Courses'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;Available Courses</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/student/registeredCourses}"
+              th:classappend="${routePath == 'My Courses'? 'active':''}"
+              th:style="${routePath != 'My Courses'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;My Courses</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/student/grade}"
+              th:classappend="${routePath == 'GPA & Grades'? 'active':''}"
+              th:style="${routePath != 'GPA & Grades'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;GPA & Grades</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/student/accountDetails}"
+              th:classappend="${routePath == 'profile'? 'active':''}"
+              th:style="${routePath != 'profile'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;Profile</span></a
+            >
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div th:fragment="footer" style="text-align: center">
+      &copy; 2023 My Course App
+    </div>
+  </body>
+</html>

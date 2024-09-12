@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div
+      th:fragment="admin-navbar"
+      class="ck_navigation_main_wrapper ck_navigation_inner_main_wrapper float_left"
+    >
+      <div class="container-fluid">
+        <div class="ck_logo_wrapper ck_logo_wrapper_inner">
+          <img src="../../static/images/logo.png" alt="logo" height="90px" />
+        </div>
+        <div class="ck_navigation_right_wrapper">
+          <div class="ck_login_btn">
+            <th:block th:if="${session.id != null}">
+              <a th:href="@{/logout}">
+                <img
+                  src="../../static/images/logout.png"
+                  alt="Logout"
+                  height="25px"
+                />
+              </a>
+            </th:block>
+            <th:block th:if="${session.id == null}">
+              <a th:href="@{/login}"
+                ><i class="flaticon-login-square-arrow-button-outline"></i
+              ></a>
+            </th:block>
+          </div>
+          <div class="buss_cart_section_wrapper"></div>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar sidebar-offcanvas" th:fragment="admin-sidebar">
+      <div
+        class="list-group list-group-flush"
+        style="background-color: #9cd1f8"
+      >
+        <a
+          class="list-group-item list-group-item-action"
+          href="/admin/courses"
+          th:classappend="${activeTab == 'courses'} ? 'active' : ''"
+          th:style="${activeTab != 'courses'} ? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'"
+          ><img
+            src="../../static/images/table.svg"
+            alt="logo"
+            class="sidebar-icon"
+          /><span class="menu-title">&nbsp;Manage Courses</span>
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          href="/admin/lecturers"
+          th:classappend="${activeTab == 'lecturers'} ? 'active' : ''"
+          th:style="${activeTab != 'lecturers'} ? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'"
+        >
+          <img
+            src="../../static/images/table.svg"
+            alt="logo"
+            class="sidebar-icon"
+          /><span class="menu-title">&nbsp;Manage Lecturers</span>
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          href="/admin/students"
+          th:classappend="${activeTab == 'students'} ? 'active' : ''"
+          th:style="${activeTab != 'students'} ? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'"
+        >
+          <img
+            src="../../static/images/table.svg"
+            alt="logo"
+            class="sidebar-icon"
+          /><span class="menu-title">&nbsp;Manage Students</span>
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          href="/admin/admins"
+          th:classappend="${activeTab == 'admins'} ? 'active' : ''"
+          th:style="${activeTab != 'admins'} ? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'"
+        >
+          <img
+            src="../../static/images/table.svg"
+            alt="logo"
+            class="sidebar-icon"
+          /><span class="menu-title">&nbsp;Manage Admin</span>
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          href="/admin/enrollments"
+          th:classappend="${activeTab == 'enrollments'} ? 'active' : ''"
+          th:style="${activeTab != 'enrollments'} ? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'"
+        >
+          <img
+            src="../../static/images/table.svg"
+            alt="logo"
+            class="sidebar-icon"
+          /><span class="menu-title">&nbsp;Manage Enrollment</span>
+        </a>
+      </div>
+    </nav>
+  </body>
+</html>

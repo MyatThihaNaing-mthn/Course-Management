@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom shadow" th:fragment="top-navbar">
+        <a class="navbar-brand" href="/admin/courses">
+            <img th:src="@{/images/randomIcon.png}" width="40" height="40" class="d-inline-block align-top"
+                alt="logo_Image">
+            CAPS
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="divider" th:fragment="divider">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end" id="sidebar-wrapper" th:fragment="sidebar"
+            style="height: 100vh; width: 20vw; background-color: #9cd1f8;">
+            <!--Horizontal Divider-->
+            <!--<div class="sidebar-heading border-bottom bg-dark" style="height: 100vh; width: 20vw; background-color: #9cd1f8;">CAPS</div> -->
+            <div class="list-group list-group-flush" style="background-color: #9cd1f8;">
+                <a class="list-group-item list-group-item-action" href="/admin/courses"
+                    th:classappend="${activeTab == 'courses'} ? 'active' : ''"
+                    th:style="${activeTab != 'courses'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Courses
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/lecturers"
+                    th:classappend="${activeTab == 'lecturers'} ? 'active' : ''"
+                    th:style="${activeTab != 'lecturers'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Lecturers
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/students"
+                    th:classappend="${activeTab == 'students'} ? 'active' : ''"
+                    th:style="${activeTab != 'students'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Students
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/admins"
+                    th:classappend="${activeTab == 'admins'} ? 'active' : ''"
+                    th:style="${activeTab != 'admins'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Admins
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/enrollments"
+                    th:classappend="${activeTab == 'enrollments'} ? 'active' : ''"
+                    th:style="${activeTab != 'enrollments'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Enrollments
+                </a>
+            </div>
+
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <h1 class="mt-4">Simple Sidebar</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

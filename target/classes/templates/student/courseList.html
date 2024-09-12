@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <!-- <th:block th:insert="~{home/home::nav-wrapper}"></th:block> -->
+    <div class="container-fluid page-body-wrapper">
+      <th:block th:insert="~{layout/home::sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <th:block th:if="${not #strings.isEmpty(msg)}"
+            ><div
+              class="alert alert-success"
+              role="alert"
+              th:text="${msg}"
+            ></div
+          ></th:block>
+          <div class="student-table">
+            <!-- <h4 class="card-title">Available Courses!!</h4> -->
+
+            <div th:if="${not #lists.isEmpty(courseList)}">
+              <table class="table table-striped table-bordered">
+                <thead class="text-center" style="background-color: #f98b88">
+                  <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Start Date ~ End Date</th>
+                    <th>Schedule</th>
+                    <th>Enrolled Students</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="course,ind:${courseList}">
+                    <td th:text="${ind.count}"></td>
+                    <td th:text="${course.name}"></td>
+                    <td
+                      th:text="${#dates.format(course.startDate,'dd-MMM-yyyy')}+' ~ '+${#dates.format(course.endDate,'dd-MMM-yyyy')}"
+                    ></td>
+                    <td th:text="${course.schedule}"></td>
+                    <td
+                      th:text="${course.currentCount}+'/'+${course.size}"
+                    ></td>
+                    <td style="align-items: center">
+                      <a
+                        class="btn btn-primary btn-sm"
+                        style="color: white"
+                        th:href="@{'/student/enroll/'+${course.id}}"
+                      >
+                        Enroll
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div th:insert="~{layout/home::footer}"></div>
+  </body>
+</html>

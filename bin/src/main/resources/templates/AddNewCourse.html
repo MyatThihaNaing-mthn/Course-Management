@@ -1,0 +1,36 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Course Management System</h1>
+        <hr>
+        <h2>New Course</h2>
+
+        <form action="#" th:action="@{/course/save}" th:object="${courseform}" method="POST">
+            <input type="text" th:field="*{name}" placeholder="Course Name" class="form-control mb-4 col-4">
+            <input type="text" th:field="*{size}" placeholder="Course Size" class="form-control mb-4 col-4">
+            <input type="text" th:field="*{credits}" placeholder="Course Credits"
+                class="form-control mb-4 col-4">
+            <input type="text" th:field="*{description}" placeholder="Course Description"
+                class="form-control mb-4 col-4">
+            <input type="text" th:field="*{schedule}" placeholder="Course Schedule"
+                class="form-control mb-4 col-4">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-info col-2">Save Course</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/course/list}"> Back to Course List</a>
+    </div>
+</body>
+
+</html>

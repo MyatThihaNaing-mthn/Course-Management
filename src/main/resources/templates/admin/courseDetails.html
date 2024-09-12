@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}">
+    
+  </head>
+  <body>
+    <!--Navbar-->
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <div class="container-fluid page-body-wrapper">
+      <!-- Page content-->
+      <th:block th:insert="~{layout/admin::admin-sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                <!-- Sidebar-->
+                <!-- Sidebar-->
+                <!-- <div th:insert="admin/adminLayout.html::sidebar"></div> -->
+                <!-- Page content wrapper-->
+                
+                  <!-- Page content-->
+                  <div class="container form-container">
+                    <div class="form-wraper">
+                      <form
+                        th:object="${course}"
+                        th:action="@{/admin/update_course/{id}(id=${course.id})}"
+                        method="post"
+                        class="form"
+                      >
+                        <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input
+                            type="text"
+                            id="name"
+                            th:field="${course.name}"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="size">Size:</label>
+                          <input
+                            type="text"
+                            id="size"
+                            th:field="${course.size}"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="credits">Credits:</label>
+                          <input
+                            type="text"
+                            id="credits"
+                            th:field="${course.credits}"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="description">Description:</label>
+                          <textarea
+                            id="description"
+                            th:field="${course.description}"
+                            class="form-control"
+                          ></textarea>
+                        </div>
+                        <!--Assigned Lecturer-->
+          
+                        <div class="form-group form-border">
+                          <label for="description">--Assigned Lecturers:</label>
+                          <div id="lecturer-list" class="row">
+                            <div
+                              class="col-lg-3 col-md-4 col-sm-6"
+                              th:each="lecturer, itemStat : ${course.lecturers}"
+                            >
+                              <div class="lecturer-item">
+                                <div class="input-group">
+                                  <input
+                                    type="hidden"
+                                    th:name="|lecturers[${itemStat.index}].id|"
+                                    th:value="${lecturer.id}"
+                                  />
+                                  <input
+                                    type="text"
+                                    th:name="|lecturers[${itemStat.index}].name|"
+                                    th:value="${lecturer.name}"
+                                    class="form-control lecturer-input"
+                                    readonly
+                                  />
+                                  <!-- Other course fields -->
+                                  <div class="input-group-append">
+                                    <button
+                                      type="button"
+                                      class="btn btn-sm btn-danger remove-course"
+                                      onclick="removeLecturer(this)"
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-right" style="margin-right: 10px">
+                          <select class="form-control" id="selectedLecturer">
+                            <!-- Iterate over the lecturers and create dropdown options -->
+                            <option disabled selected>Select Lecturer</option>
+                            <option
+                              th:each="lecturer : ${availableLecturers}"
+                              th:value="${lecturer.id}"
+                              th:text="${lecturer.name}"
+                              th:attr="data-lecturer-id=${lecturer.id}"
+                            ></option>
+                          </select>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="addLecturer()"
+                          >
+                            Add
+                          </button>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-primary">Update</button>
+                          <button
+                            type="button"
+                            onclick="history.back()"
+                            class="btn btn-secondary"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/js/adminLayout.js"></script>
+  </body>
+</html>
+    
+
+    
+    

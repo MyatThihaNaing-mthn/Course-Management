@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/adminStyle.css}" />
+</head>
+
+<body>
+    <!--Navbar-->
+    <div th:insert="admin/adminLayout.html::top-navbar">
+
+    </div>
+
+
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end" id="sidebar-wrapper" style="height: 100vh; width: 20vw; background-color: #9cd1f8;">
+            <!--<div class="sidebar-heading border-bottom bg-dark" style="height: 100vh; width: 20vw; background-color: #9cd1f8;">CAPS</div> -->
+            <div class="list-group list-group-flush" style="background-color: #9cd1f8;">
+                <a class="list-group-item list-group-item-action" href="/admin/courses"
+                    th:classappend="${activeTab == 'courses'} ? 'active' : ''"
+                    th:style="${activeTab != 'courses'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Courses
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/lecturers"
+                    th:classappend="${activeTab == 'lecturers'} ? 'active' : ''"
+                    th:style="${activeTab != 'lecturers'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Lecturers
+                </a>
+                <a class="list-group-item list-group-item-action" href="/admin/students"
+                    th:classappend="${activeTab == 'students'} ? 'active' : ''"
+                    th:style="${activeTab != 'students'} ? 'background-color: #9cd1f8;' : 'background-color: #FFC107; color: white;'">
+                    Manage Students
+                </a>
+            </div>
+
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <form th:action="@{/admin/course/newcourse}" th:object="${newCourseForm}" method="POST">
+                    <label for="name">Course Name:</label>
+                    <input type="text" id="name" th:field="${newCourseForm.name}" placeholder="Enter A Name" class="form-control mb-4 col-4">
+                    <label for="Course Size">Course Size:</label>
+                    <input type="text" th:field="*{size}" class="form-control mb-4 col-4">
+                    <label for="Course Credits">Course Credits:</label>
+                    <input type="text" th:field="*{credits}" class="form-control mb-4 col-4">
+                    <label for="Course Description">Course Description:</label>
+                    <input type="text" th:field="*{description}" class="form-control mb-4 col-4"> 
+                    <label for="Course Description">Course StartDate:</label>
+                    <input type="date" th:field="*{startDate}" class="form-control mb-4 col-4">
+                    <label for="Course Description">Course EndDate:</label>
+                    <input type="date" th:field="*{endDate}" class="form-control mb-4 col-4">
+
+                    <!-- How many value does schedule have?
+                    <select name="schedule" id="course-schedule" th:field="*{schedule}">
+                        <option value="Term1">Term1</option>
+                        <option value="Term2">Term2</option>
+                    </select>
+                    -->
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-info col-2">Save Course</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

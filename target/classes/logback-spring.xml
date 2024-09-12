@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console Appender -->
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Activity File Appender -->
+    <appender name="ActivityFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/activity.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/activity.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>1000</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Set levels of loggers -->
+    <root level="info">
+        <appender-ref ref="ConsoleAppender" />
+    </root>
+    
+    <logger name="activityLogger" level="info" additivity="false">
+        <appender-ref ref="ActivityFileAppender" />
+    </logger>
+</configuration>

@@ -1,0 +1,32 @@
+.main-nav {
+  margin: 0px;
+}
+.each-tab {
+  width: auto !important;
+}
+.course-style {
+  text-align: center;
+}
+.course-title {
+  font-weight: bold;
+}
+.icon-style {
+  width: 20px;
+  height: 20px;
+}
+.sidebar-icon {
+  width: 15px;
+  height: 15px;
+}
+.scrollable-text {
+  width: auto;
+  height: 80px;
+  overflow: auto;
+  padding: 5px;
+}
+
+@media (min-width: 100px) {
+  .scrollable-text {
+    height: 120px;
+  }
+}

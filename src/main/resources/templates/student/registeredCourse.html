@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <style></style>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <!-- <th:block th:insert="~{home/home::nav-wrapper}"></th:block> -->
+    <div class="container-fluid page-body-wrapper">
+      <th:block th:insert="~{layout/home::sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div>
+            <a th:href="@{/student/removeCourses}"
+              >View Remove Courses<img
+                src="../../static/images/arrow-right.svg"
+            /></a>
+          </div>
+          <br />
+          <!-- <h4 class="card-title">Available Courses!!</h4> -->
+
+          <div class="student-table" th:if="${not #lists.isEmpty(courseList)}">
+            <table class="table table-striped table-bordered">
+              <thead class="text-center" style="background-color: #f98b88">
+                <tr>
+                  <th>No.</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Start Date ~ End Date</th>
+                  <th>Schedule</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="course,ind:${courseList}">
+                  <td th:text="${ind.count}"></td>
+                  <td th:text="${course.name}"></td>
+                  <td th:text="${course.description}"></td>
+                  <td
+                    th:text="${#dates.format(course.startDate, 'dd-MM-yyyy')} + ' ~ ' + ${#dates.format(course.endDate, 'dd-MM-yyyy')}"
+                  ></td>
+                  <td th:text="${course.schedule}"></td>
+                  <td>
+                    <th:block th:if="${course.endDate.before(currentDate)}">
+                      <button disabled class="btn btn-success">Complete</button>
+                    </th:block>
+                    <th:block th:if="${course.startDate.after(currentDate)}">
+                      <button disabled class="btn btn-warning">
+                        Coming Soon
+                      </button>
+                    </th:block>
+                    <th:block
+                      th:if="${course.startDate.before(currentDate) && course.endDate.after(currentDate)}"
+                    >
+                      <button disabled class="btn btn-primary">On Going</button>
+                    </th:block>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div th:insert="~{layout/home::footer}"></div>
+  </body>
+</html>

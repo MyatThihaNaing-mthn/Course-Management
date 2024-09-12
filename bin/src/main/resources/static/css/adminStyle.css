@@ -1,0 +1,63 @@
+.navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    position: fixed;
+  }
+
+  .bg-custom {
+    background-color: #9cd1f8;
+  }
+
+  body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+#page-content-wrapper {
+  height: calc(100% - 56px);
+  width: calc(100% - 20vw);
+  overflow-y: auto;
+  margin-top: 64px;
+  padding: 1px;
+  margin-left: 20vw; 
+}
+#new-course-form {
+  padding: 2px;
+  height: 100%;
+}
+.btn-primary {
+  background-color: #FFC107; /* Set the background color to a complementary color */
+  color: #ffffff;
+}
+
+.divider {
+  border-top: 1px solid #ccc;
+  margin: 0;
+  position: fixed;
+}
+
+.text-right{
+  margin-right: 10px;
+}
+
+#sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 20vw;
+  background-color: #9cd1f8;
+  margin-top: 63px;
+}
+
+/*Lecturer details form */
+.form-border {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.course-item {
+  margin-bottom: 10px;
+}

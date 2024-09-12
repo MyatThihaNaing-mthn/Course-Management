@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<!-- 
+Team9
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+  <!--[endif]-->
+
+  <head th:fragment="main-navbar">
+    <meta charset="utf-8" />
+    <title>Team9 CA project</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="OYXBH" />
+    <meta name="keywords" content="OYXBH" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/animate.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{http://cdn.bootstrapmb.com/bootstrap/4.1.3/css/bootstrap.min.css}"
+    />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/fonts.css}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/static/css/flaticon.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="@{/static/css/font-awesome.css}";
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/static/css/fullpage.min.css}"
+    />
+    <link rel="stylesheet" type="text/css" href="../../static/css/demo.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/static/css/owl.carousel.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/css/owl.theme.default.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/css/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/stylehome.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/responsive.css}"
+    />
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/custom.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <!--favicon-->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      th:href="@{/images/favicon.png}"
+    />
+  </head>
+
+  <body class="demo-3">
+    <!-- preloader Start -->
+    <div id="preloader">
+      <div id="status">
+        <img
+          src="../../static/images/loader.gif"
+          id="preloader_image"
+          alt="loader"
+        />
+      </div>
+    </div>
+    <!-- ck header wrapper Start -->
+    <div
+      class="ck_navigation_main_wrapper ck_navigation_inner_main_wrapper float_left"
+      th:fragment="header-wrapper"
+    >
+      <div class="container-fluid">
+        <div class="ck_logo_wrapper ck_logo_wrapper_inner">
+          <img th:src="@{/images/favicon.png}" alt="logo" height="90px" />
+        </div>
+        <div class="ck_navigation_right_wrapper">
+          <div class="ck_login_btn">
+            <a th:href="@{/login}"><i class="flaticon-login-square-arrow-button-outline"></i></a>
+          </div>
+          <div class="buss_cart_section_wrapper"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ck navigation wrapper End -->
+    <!-- ck title wrapper -->
+    <div class="ck_title_main_wrapper float_left" th:fragment="nav-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="ck_title_cont float_left">
+              <p>About us</p>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="ck_title_cont float_left">
+              <ul>
+                <li><a th:href="@{/}">Home &nbsp; ></a></li>
+                <li>About us</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ck title wrapper End -->
+    <!-- ck about inner section Start -->
+    <div class="ck_about_inner_section_main_wrapper float_left">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="ck_about_inner_img_cont_wrapper float_left">
+              <div class="ck_heading_inner_wrapper">
+                <h4>From Team9</h4>
+                <h3>Course Application Processing System（CAPS）</h3>
+              </div>
+              <p>
+                Welcome to our school, where excellence meets opportunity! At
+                School of Team 9, we pride ourselves on providing a nurturing
+                and dynamic learning environment for our students. <br />
+                <br />Situated in a picturesque setting with well-maintained
+                grounds and modern facilities, our campus provides a tranquil
+                and inspiring atmosphere for academic pursuits.
+              </p>
+              <div class="ck_about_new_pera_box float_left">
+                <i class="far fa-check-square"></i>
+                <p>Our school offers a wide range of enriching activities.</p>
+              </div>
+              <div class="ck_about_new_pera_box float_left">
+                <i class="far fa-check-square"></i>
+                <p>
+                  Our dedicated and highly qualified faculty members are
+                  passionate about inspiring students to reach their full
+                  potential.
+                </p>
+              </div>
+              <div class="ck_about_new_pera_box float_left">
+                <i class="far fa-check-square"></i>
+                <p>
+                  Numerous students successfully pursuing higher education
+                  opportunities.
+                </p>
+              </div>
+              <div class="ck_red_btn float_left"><a href="#">Join us!</a></div>
+            </div>
+          </div>
+          <div
+            class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 align-self-center"
+          >
+            <div class="ck_about_inner_img float_left">
+              <img
+                width="560px"
+                src="../../static/images/abt_in_img2.png"
+                alt="img"
+                height="650px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ck about inner section End -->
+    <!-- counter wrapper start-->
+    <div class="counter_section float_left">
+      <div class="counter_overlay"></div>
+      <div class="counter-section">
+        <div class="container">
+          <div class="row">
+            <div class="counter_width">
+              <div class="counter_cntnt_box">
+                <div class="tb_icon">
+                  <div class="icon">
+                    <i class="fas fa-star"></i>
+                    <div class="btc_step_overlay"></div>
+                  </div>
+                </div>
+                <div class="count-description">
+                  <span class="timer">28000</span>
+                  <h5 class="con1">
+                    <a href="#">Annual number of applicants</a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="counter_width">
+              <div class="counter_cntnt_box">
+                <div class="tb_icon">
+                  <div class="icon">
+                    <i class="fas fa-user"></i>
+                    <div class="btc_step_overlay"></div>
+                  </div>
+                </div>
+                <div class="count-description">
+                  <span class="timer">4200</span>
+                  <h5 class="con2">
+                    <a href="#"> Number of Enrolled Students</a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="counter_width counter_width2">
+              <div class="counter_cntnt_box">
+                <div class="tb_icon">
+                  <div class="icon">
+                    <i class="fas fa-trophy"></i>
+                    <div class="btc_step_overlay"></div>
+                  </div>
+                </div>
+                <div class="count-description">
+                  <span class="timer">700</span>
+                  <h5 class="con2">
+                    <a href="#">Annual international competition winners.</a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="counter_width counter_width2">
+              <div class="counter_cntnt_box">
+                <div class="tb_icon">
+                  <div class="icon">
+                    <i class="fas fa-mug-hot"></i>
+                    <div class="btc_step_overlay"></div>
+                  </div>
+                </div>
+                <div class="count-description">
+                  <span class="timer">2876</span>
+                  <h5 class="con4">
+                    <a href="#"> Number of outstanding teachers </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- counter wrapper end-->
+    <!-- gallry wrapper Start-->
+    <div
+      class="ck_gallery_main_wrapper ck_gallery_inner_main_wrapper float_left"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ck_inner_heading_wrapper float_left">
+              <h4>A wide range of extracurricular activities</h4>
+              <h3>Rich Variety of activities</h3>
+            </div>
+            <div class="ck_gallery_slider_wrapper float_left">
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="ck_gallery_box_main_wrapper float_left">
+                    <img
+                      src="../../static/images/g1.png"
+                      alt="img"
+                      width="300px"
+                      height="300px"
+                    />
+                    <div class="overlay"></div>
+                    <div class="ck_gallery_cont_wrapper float_left">
+                      <h3>New Graduates</h3>
+                      <a href="#"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_gallery_box_main_wrapper float_left">
+                    <img
+                      src="../../static/images/g2.png"
+                      alt="img"
+                      width="300px"
+                      height="300px"
+                    />
+                    <div class="overlay"></div>
+                    <div class="ck_gallery_cont_wrapper float_left">
+                      <h3>Cultural Lecture</h3>
+                      <a href="#"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_gallery_box_main_wrapper float_left">
+                    <img
+                      src="../../static/images/g3.png"
+                      alt="img"
+                      width="300px"
+                      height="300px"
+                    />
+                    <div class="overlay"></div>
+                    <div class="ck_gallery_cont_wrapper float_left">
+                      <h3>Career Guidance</h3>
+                      <a href="#"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_gallery_box_main_wrapper float_left">
+                    <img
+                      src="../../static/images/g4.png"
+                      alt="img"
+                      width="300px"
+                      height="300px"
+                    />
+                    <div class="overlay"></div>
+                    <div class="ck_gallery_cont_wrapper float_left">
+                      <h3>Roundtable Discussion</h3>
+                      <a href="#"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ck_red_btn ck_gallery_red_btn float_left">
+                <a href="#">Find more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ck gallery wrapper End -->
+    <!-- team wrapper Start-->
+    <div class="ck_team_inner_main_wrapper float_left">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ck_inner_heading_wrapper float_left">
+              <h4>Outstanding Graduates</h4>
+              <h3>Excellent Senior Students</h3>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div
+              class="ck_team_slider_wrapper ck_team_inner_slider_wrapper float_left"
+            >
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="ck_team_img_wrapper float_left">
+                    <img src="../../static/images/t1.png" alt="img" />
+                    <div
+                      class="ck_team_img_cont_wrapper ck_team_inner_img_cont_wrapper float_left"
+                    >
+                      <h3><a href="#">James Gosling</a></h3>
+                      <p>
+                        Known as the father of Java, the father of this
+                        widely-used programming language, also an accomplished
+                        computer scientist.
+                      </p>
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_team_img_wrapper float_left">
+                    <img src="../../static/images/t2.png" alt="img" />
+                    <div
+                      class="ck_team_img_cont_wrapper ck_team_inner_img_cont_wrapper float_left"
+                    >
+                      <h3><a href="#">Rod Johnson</a></h3>
+                      <p>
+                        The visionary behind MySQL, pioneered the world's most
+                        popular open-source relational database system.
+                      </p>
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_team_img_wrapper float_left">
+                    <img src="../../static/images/t3.png" alt="img" />
+                    <div
+                      class="ck_team_img_cont_wrapper ck_team_inner_img_cont_wrapper float_left"
+                    >
+                      <h3><a href="#">Michael "Monty" Widenius</a></h3>
+                      <p>
+                        The mastermind behind MySQL, revolutionized the world of
+                        relational databases with his groundbreaking creation.
+                      </p>
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ck_red_btn ck_gallery_red_btn float_left">
+              <a href="#">Find more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- client wrapper Start-->
+    <div class="ck_testi_inner_main_wrapper float_left">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ck_inner_heading_wrapper float_left">
+              <h4>Memories of Activities</h4>
+              <h3>Records of Past Activities</h3>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div
+              class="ck_testi_slider_wrapper ck_testi_inner_slider_wrapper float_left"
+            >
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="ck_testi_slider_main_box_wrapper float_left">
+                    <div class="ck_testi_slide_img_wrapper">
+                      <img src="../../static/images/testi_img.jpg" alt="img" />
+                    </div>
+                    <div
+                      class="ck_testi_slide_img_cont_wrapper ck_testi_slide_img_cont_inner_wrapper"
+                    >
+                      <h4>Guido Mista <span>[ From Passione ]</span></h4>
+                      <p>
+                        I am truly grateful for the teachers at our school who
+                        genuinely care about the students' future and help us
+                        plan our careers. They not only teach us academic
+                        knowledge but also guide us in developing our personal
+                        interests and professional goals. Under their guidance,
+                        I have experienced significant growth and progress.
+                      </p>
+                      <img src="../../static/images/testi_sig2.png" alt="img" />
+                      <div class="ck_testi_title_line">
+                        <img src="../../static/images/quote2.png" alt="img" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_testi_slider_main_box_wrapper float_left">
+                    <div class="ck_testi_slide_img_wrapper">
+                      <img src="../../static/images/testi_img2.png" alt="img" />
+                    </div>
+                    <div
+                      class="ck_testi_slide_img_cont_wrapper ck_testi_slide_img_cont_inner_wrapper"
+                    >
+                      <h4>Giorno Giovanna <span>[ From Passione ]</span></h4>
+                      <p>
+                        Our school offers a wide range of interesting
+                        extracurricular activities where we learn a lot through
+                        practical experiences. These activities have enriched my
+                        learning journey and provided me with valuable skills
+                        beyond the classroom. I appreciate the school's emphasis
+                        on practical learning, which has broadened my horizons.
+                      </p>
+                      <img src="../../static/images/testi_sig2.png" alt="img" />
+                      <div class="ck_testi_title_line">
+                        <img src="../../static/images/quote2.png" alt="img" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ck_testi_slider_main_box_wrapper float_left">
+                    <div class="ck_testi_slide_img_wrapper">
+                      <img src="../../static/images/testi_img3.png" alt="img" />
+                    </div>
+                    <div
+                      class="ck_testi_slide_img_cont_wrapper ck_testi_slide_img_cont_inner_wrapper"
+                    >
+                      <h4>Bruno Buccellati <span>[ From Passione ]</span></h4>
+                      <p>
+                        The environment at our school is excellent, and the
+                        students around me are remarkable. I have witnessed
+                        significant personal development as a result. The
+                        supportive atmosphere and the achievements of my peers
+                        have inspired me to strive for excellence. I am grateful
+                        for the positive and nurturing environment that has
+                        fostered my growth.
+                      </p>
+                      <img src="../../static/images/testi_sig2.png" alt="img" />
+                      <div class="ck_testi_title_line">
+                        <img src="../../static/images/quote2.png" alt="img" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- client wrapper End-->
+    <!-- cll wrapper Start-->
+    <div class="ck_call_main_wrapper float_left">
+      <div class="container">
+        <div class="ck_cll_left_wrapper">
+          <div class="ck_cll_icon align-self-center">
+            <i class="flaticon-phone-contact"></i>
+            <h4>Contact Us</h4>
+            <p>114514</p>
+          </div>
+          <div class="ck_cll_img">
+            <img src="../../static/images/cll_img.png" alt="img" />
+          </div>
+        </div>
+        <div class="ck_cll_right_wrapper">
+          <div class="cl_cll_form">
+            <input type="text" placeholder="Your Email" />
+            <button>submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cll wrapper End-->
+    <!-- partner wrapper Start-->
+    <div class="ck_partner_inner_main_wrapper float_left">
+      <div class="container"></div>
+    </div>
+
+    <!-- st login wrapper End -->
+    <script src="../../static/js/jquery-3.3.1.min.js"></script>
+    <script src="http://cdn.bootstrapmb.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="../../static/js/modernizr.js"></script>
+    <script src="../../static/js/fullpage.min.js"></script>
+    <script src="../../static/js/scrolloverflow.js"></script>
+    <script src="../../static/js/demo3.js"></script>
+    <script src="../../static/js/easings.js"></script>
+    <script src="../../static/js/jquery.inview.min.js"></script>
+    <script src="../../static/js/jquery.countTo.js"></script>
+    <script src="../../static/js/owl.carousel.js"></script>
+    <script src="../../static/js/jquery.magnific-popup.js"></script>
+    <script src="../../static/js/custom.js"></script>
+    <!-- custom js-->
+  </body>
+</html>

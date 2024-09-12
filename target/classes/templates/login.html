@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}">
+  </head>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <div class="ck_title_main_wrapper float_left" th:fragment="nav-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="ck_title_cont float_left">
+                <p>Login</p>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="ck_title_cont float_left">
+                <ul>
+                  <li><a th:href="@{/}">Home &nbsp; ></a></li>
+                  <li>Login</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div>
+      <!-- <th:block th:insert="~{layout/home::my-top-nav}" /> -->
+      <body>
+        <div class="container-fluid page-body-wrapper">
+          <div class="main-panel" style="margin-left: 100px;">
+            <div class="content-wrapper">
+              <section class="vh-100">
+                <div class="container py-5 h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+                      <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                          <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                              alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                          </div>
+                          <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+                              
+                            <form th:action="@{/login}" th:object="${user}" method="post">
+            
+                              <div class="d-flex align-items-center mb-3 pb-1">
+                                <img src="../../static/images/favicon.png" alt="Logo" class="logo-img me-3" style="width: 70px; height: 60px">
+                                <span class="h1 fw-bold mb-0">CORS</span>
+                              </div>
+            
+                              <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>  
+            
+                              <div class="form-outline mb-4">
+                                <input type="text" th:field="*{username}"class="form-control form-control-lg" />
+                                <label class="form-label" for="form2Example17">Username</label>
+                              </div>
+            
+                              <div class="form-outline mb-4">
+                                <input type="password" th:field="*{password}" class="form-control form-control-lg" />
+                                <label class="form-label" for="form2Example27">Password</label>
+                              </div>
+            
+                              <div class="pt-1 mb-4">
+                                <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+        </div>
+        <div th:insert="~{layout/home::footer}"></div>
+    </body>
+  </html>
+  
+
+  
+
+  <!-- <form th:action="@{/login}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" th:field="*{username}" /></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Login" /></td>
+        </tr>
+    </table>
+  </form> -->
+
+  

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+
+  <body>
+    <!--Navbar-->
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <div class="container-fluid page-body-wrapper">
+      <!-- Page content-->
+      <th:block th:insert="~{layout/admin::admin-sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div class="card" style="align-items: center">
+            <div class="card-body">
+              <h2 style="text-align: center">Enrollments</h2>
+              <br />
+              <form
+                class="form-inline"
+                th:action="@{/admin/enrollments}"
+                th:object="${student}"
+                method="post"
+              >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="searchInput"
+                    placeholder="Search Enrollment with Student ID"
+                    th:field="${student.id}"
+                    style="width: 400px"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../../static/js/adminLayout.js"></script>
+  </body>
+</html>

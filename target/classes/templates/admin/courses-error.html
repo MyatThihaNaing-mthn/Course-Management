@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}">
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <div class="container-fluid page-body-wrapper">
+      <!-- Page content-->
+      <th:block th:insert="~{layout/admin::admin-sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div class="error-container" th:if="${error}">
+            <p th:text="${error}" class="error-message"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

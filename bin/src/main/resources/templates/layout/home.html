@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <style>
+    .custom-sidebar ul > li a.active {
+      background-color: #4caf50;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <th:block th:insert="~{home/home::nav-wrapper}"></th:block>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper">
+        <nav
+          class="sidebar sidebar-offcanvas custom-sidebar"
+          th:fragment="sidebar"
+        >
+          <ul class="nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                aria-expanded="false"
+                aria-controls="ui-basic"
+                th:href="@{/student/courseList}"
+                ><img
+                  src="../../images/table.svg"
+                  alt="logo"
+                  class="sidebar-icon"
+                /><span class="menu-title">&nbsp;Available Courses</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                aria-expanded="false"
+                aria-controls="ui-basic"
+                th:href="@{/student/registeredCourses}"
+                ><img
+                  src="../../images/table.svg"
+                  alt="logo"
+                  class="sidebar-icon"
+                /><span class="menu-title">&nbsp;Registered Courses</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-toggle="collapse"
+                aria-expanded="false"
+                aria-controls="ui-basic"
+                th:href="@{/student/grade}"
+                ><img
+                  src="../../images/table.svg"
+                  alt="logo"
+                  class="sidebar-icon"
+                /><span class="menu-title">&nbsp;GPA & Grades</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div th:fragment="footer">&copy; 2023 My Course App</div>
+  </body>
+</html>

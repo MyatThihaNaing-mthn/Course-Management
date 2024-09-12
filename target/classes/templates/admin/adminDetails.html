@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+
+  <body>
+    <!--Navbar-->
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- Page content-->
+      <th:block th:insert="~{layout/admin::admin-sidebar}" />
+      <div class="main-panel" th:fragment="myContent">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <h1>Admin's Information</h1>
+              <form
+                th:action="@{/admin/update_admin/{id}(id=${admin.id})}"
+                th:object="${admin}"
+                method="POST"
+              >
+                <label for="id">Admin Id:</label>
+                <input
+                  type="text"
+                  id="name"
+                  th:field="${admin.id}"
+                  readonly
+                  class="form-control mb-4 col-4"
+                />
+                <label for="name">Admin Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  th:field="${admin.adminName}"
+                  placeholder="Enter Name"
+                  class="form-control mb-4 col-4"
+                />
+                <label for="Course Size">Update Password:</label>
+                <input
+                  type="password"
+                  th:field="*{adminPwd}"
+                  placeholder="Enter New Password"
+                  class="form-control mb-4 col-4"
+                />
+                <br />
+                <button type="submit" class="btn btn-info col-2">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/adminLayout.js}"></script>
+  </body>
+</html>

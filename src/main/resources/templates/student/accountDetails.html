@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <style></style>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+      <!-- <th:block th:insert="~{layout/home::my-top-nav}" /> -->
+      <div class="container-fluid page-body-wrapper">
+        <th:block th:insert="~{layout/home::sidebar}" />
+        <div class="main-panel" th:fragment="myContent">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <!-- <h4 class="card-title">Available Courses!!</h4> -->
+                    <div class="container">
+                        <form action="#" th:action="@{/student/changeAccountDetails}" th:object="${student}" method="POST">
+                            <input type="hidden" th:field="*{id}">
+                            <label for="name">First Name:</label>
+                            <input type="text" id="firstname" th:field="*{firstName}" class="form-control mb-4 col-4" readonly>
+                            <label for="name">Last Name:</label>
+                            <input type="text" id="lastname" th:field="*{lastName}" class="form-control mb-4 col-4" readonly>
+                            <label for="email">Email:</label>
+                            <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+                            <label for="DOB">Date Of Birth:</label>
+                            <input type="date" th:field="*{dob}" class="form-control mb-4 col-4" readonly>
+                            <label for="EnrolDate">School Enrollment Date:</label>
+                            <input type="date" th:field="*{enrollmentDate}" class="form-control mb-4 col-4" readonly>
+                            <label for="gpa">GPA:</label>
+                            <input type="number" th:field="*{gpa}" class="form-control mb-4 col-4" readonly>
+                            <label for="change password">Enter New Password:</label>
+                            <input type="password" th:field="*{password}" class="form-control mb-4 col-4">
+                            <br>
+                            <button type="submit" class="btn btn-info col-2">Save Changes</button>
+                        </form>
+                        
+
+                        <br>
+                        <br>
+        <div th:insert="~{layout/home::footer}"></div>
+    </body>
+</html>
+              

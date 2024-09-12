@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper">
+        <nav
+          class="sidebar sidebar-offcanvas"
+          style="width: 18%"
+          th:fragment="sidebar"
+        >
+          <div
+            class="list-group list-group-flush"
+            style="background-color: #9cd1f8"
+          >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${activeTab == 'modules'? 'active':''}"
+              th:style="${activeTab != 'modules'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/lecturer/modules}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;View Courses Taught</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${activeTab == 'studentPerformance'? 'active':''}"
+              th:style="${activeTab != 'studentPerformance'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/lecturer/viewStudentPerformance}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;Student Performances</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${activeTab == 'courseEnroll'? 'active':''}"
+              th:style="${activeTab != 'courseEnroll'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/lecturer/viewCourseEnrolment}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;View Course Enrolment</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${activeTab == 'gradeCourse'? 'active':''}"
+              th:style="${activeTab != 'gradeCourse'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/lecturer/selectCourse}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;Grade Courses</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              th:classappend="${activeTab == 'accountDetails'? 'active':''}"
+              th:style="${activeTab != 'accountDetails'? 'background-color: white;' : 'background-color: #9cd1f8; color: blue;'}"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+              th:href="@{/lecturer/accountDetails}"
+              ><img
+                src="../../static/images/table.svg"
+                alt="logo"
+                class="sidebar-icon"
+              /><span class="menu-title">&nbsp;Account Details</span></a
+            >
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div th:fragment="footer">&copy; 2023 My Course App</div>
+  </body>
+</html>

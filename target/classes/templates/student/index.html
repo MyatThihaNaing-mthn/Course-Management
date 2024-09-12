@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head th:insert="~{home/home::main-navbar}"></head>
+  <body>
+    <th:block th:insert="~{home/home::header-wrapper}"></th:block>
+    <!-- <th:block th:insert="~{home/home::nav-wrapper}"></th:block> -->
+    <div>
+      <!-- <th:block th:insert="~{layout/home::my-top-nav}" /> -->
+      <div class="container-fluid page-body-wrapper">
+        <th:block th:insert="~{layout/home::sidebar}" />
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row" th:if="${not #lists.isEmpty(courseList)}">
+              <div class="col-lg-4 grid-margin" th:each="course:${courseList}">
+                <div class="card-container">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title" th:text="${course.name}"></h4>
+                      <div class="card-text scrollable-text">
+                        <strong>Description:</strong>
+                        <span th:text="${course.description}"></span>
+                      </div>
+                      <br />
+                      <div class="card-text">
+                        <strong>Start Date:</strong>
+                        <span
+                          th:text="${#dates.format(course.startDate, 'dd-MM-yyyy')}"
+                        ></span>
+                      </div>
+                      <div class="card-text">
+                        <strong>End Date:</strong>
+                        <span
+                          th:text="${#dates.format(course.endDate, 'dd-MM-yyyy')}"
+                        ></span>
+                      </div>
+                      <div class="card-text">
+                        <strong>Schedule:</strong>
+                        <span th:text="${course.schedule}"></span>
+                      </div>
+                      <br />
+                      <div class="card-text">
+                        <th:block
+                          th:if="${#lists.contains(completeCourses,course.id) && course.endDate.before(currentDate)}"
+                        >
+                          <button
+                            th:fragment="disableBtn"
+                            type="button"
+                            disabled
+                            class="btn btn-success"
+                          >
+                            Completed
+                          </button>
+                          <a
+                            class="btn btn-outline-info"
+                            th:href="@{'/student/enroll/'+${course.id}}"
+                            >View Course</a
+                          >
+                        </th:block>
+                        <th:block
+                          th:if="${#lists.contains(regitCourses,course.id) && course.endDate.after(currentDate)}"
+                        >
+                          <a type="button" class="card-text" style="color: red">
+                            Already Registered
+                          </a>
+                          <a
+                            class="btn btn-outline-info"
+                            th:href="@{'/student/enroll/'+${course.id}}"
+                            >View Course</a
+                          >
+                        </th:block>
+                        <th:block
+                          th:if="${#lists.contains(removedCourses,course.id)}"
+                        >
+                          <a
+                            class="card-text"
+                            style="color: red; font-weight: bold"
+                          >
+                            You have been removed from this course. You can't
+                            enroll again.
+                          </a>
+                        </th:block>
+
+                        <th:block
+                          th:unless="${#lists.contains(removedCourses,course.id) || #lists.contains(completeCourses,course.id) || #lists.contains(regitCourses,course.id)}"
+                        >
+                          <th:block
+                            th:if="${currentDate.after(course.startDate)}"
+                          >
+                            <button
+                              disabled
+                              type="button"
+                              class="btn btn-primary"
+                            >
+                              Course Already Started
+                            </button>
+                          </th:block>
+                          <th:block
+                            th:if="${course.currentCount== course.size}"
+                          >
+                            <button
+                              disabled
+                              type="button"
+                              class="btn btn-danger"
+                            >
+                              Course is Full
+                            </button>
+                          </th:block>
+                          <th:block
+                            th:unless="${currentDate.after(course.startDate)}"
+                          >
+                            <a th:if="${course.currentCount < course.size}"
+                              type="button"
+                              class="btn btn-primary"
+                              th:href="@{'/student/enroll/'+${course.id}}"
+                            >
+                              Enroll
+                            </a>
+                          </th:block>
+                        </th:block>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div th:insert="~{layout/home::footer}"></div>
+  </body>
+</html>

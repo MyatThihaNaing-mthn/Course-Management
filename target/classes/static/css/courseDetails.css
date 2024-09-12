@@ -1,0 +1,10 @@
+#selectedItems {
+    margin-top: 20px;
+  }
+  
+  .removeItem {
+    color: red;
+    cursor: pointer;
+    float: right;
+  }
+  
